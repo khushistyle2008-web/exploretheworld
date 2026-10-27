@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Explore classic number patterns and learn how nested loops create them in C.">
+  <title>Pattern Lab — Learn C with patterns</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Pattern Lab home"><span class="brand-icon">{ }</span> pattern<span>lab</span></a>
+    <nav aria-label="Main navigation"><a href="#patterns">Patterns</a><a href="#how-it-works">How it works</a><a href="#about">About</a></nav>
+    <a class="top-cta" href="#patterns">Start exploring <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> A beginner-friendly C project</p>
+        <h1>Make sense<br>of <span>patterns.</span></h1>
+        <p class="hero-intro">A few lines of C. A couple of loops. A whole lot of satisfying patterns. Explore the logic behind the shapes, one row at a time.</p>
+        <a class="primary-btn" href="#patterns">Explore the patterns <span aria-hidden="true">↓</span></a>
+        <div class="hero-note"><span class="note-mark">✳</span><span>Built with <strong>C loops</strong><br>Made for curious beginners</span></div>
+      </div>
+      <div class="hero-art" aria-label="A decorative number grid showing a 1 to 7 square pattern">
+        <div class="art-label"><span class="live-dot"></span> OUTPUT PREVIEW <span class="art-label-right">01 / 04</span></div>
+        <pre class="hero-grid" aria-hidden="true">1  2  3  4  5  6  7
+1  2  3  4  5  6  7
+1  2  3  4  5  6  7
+1  2  3  4  5  6  7
+1  2  3  4  5  6  7
+1  2  3  4  5  6  7
+1  2  3  4  5  6  7</pre>
+        <div class="art-footer"><span>square_pattern.c</span><span>7 rows <i>·</i> 7 columns</span></div>
+        <span class="orbit orbit-one" aria-hidden="true">{ }</span><span class="orbit orbit-two" aria-hidden="true">01</span>
+      </div>
+      <a class="scroll-hint" href="#patterns"><span>↓</span> SCROLL TO EXPLORE</a>
+    </section>
+
+    <section class="patterns-section" id="patterns">
+      <div class="section-heading"><div><p class="eyebrow">THE PATTERN PLAYGROUND</p><h2>Pick a pattern.<br><span>See how it works.</span></h2></div><p class="section-description">Choose a shape, adjust its size, and follow the C code that builds it. Small experiments make loops click.</p></div>
+      <div class="lab-layout">
+        <aside class="pattern-menu" aria-label="Choose a pattern">
+          <p class="menu-label">PATTERNS <span>07</span></p>
+          <button class="pattern-choice active" data-pattern="square" aria-pressed="true"><span class="choice-number">01</span><span class="choice-name">Number square<small>Rows &amp; columns</small></span><span class="choice-arrow">↗</span></button>
+          <button class="pattern-choice" data-pattern="triangle" aria-pressed="false"><span class="choice-number">02</span><span class="choice-name">Growing triangle<small>Increasing sequence</small></span><span class="choice-arrow">↗</span></button>
+          <button class="pattern-choice" data-pattern="count" aria-pressed="false"><span class="choice-number">03</span><span class="choice-name">Counting triangle<small>Changing row values</small></span><span class="choice-arrow">↗</span></button>
+          <button class="pattern-choice" data-pattern="pyramid" aria-pressed="false"><span class="choice-number">04</span><span class="choice-name">Number pyramid<small>Spaces &amp; symmetry</small></span><span class="choice-arrow">↗</span></button>
+          <button class="pattern-choice" data-pattern="stars" aria-pressed="false"><span class="choice-number">05</span><span class="choice-name">Starry checkerboard<small>A sky full of stars</small></span><span class="choice-arrow">↗</span></button>
+          <button class="pattern-choice" data-pattern="constellation" aria-pressed="false"><span class="choice-number">06</span><span class="choice-name">Constellation<small>Connect the diagonals</small></span><span class="choice-arrow">↗</span></button>
+          <button class="pattern-choice" data-pattern="blooms" aria-pressed="false"><span class="choice-number">07</span><span class="choice-name">Blooming triangle<small>Flowers on every row</small></span><span class="choice-arrow">↗</span></button>
+          <div class="menu-tip"><span>✳</span><p><strong>Loop tip</strong><br>The outer loop makes rows. The inner loop prints the values in each row.</p></div>
+        </aside>
+
+        <div class="workspace">
+          <div class="workspace-head"><div><p class="eyebrow" id="pattern-index">PATTERN 01</p><h3 id="pattern-title">Number square</h3></div><div class="size-control"><label for="size">SIZE</label><button id="size-down" aria-label="Decrease pattern size">−</button><output id="size-value" for="size">7</output><button id="size-up" aria-label="Increase pattern size">+</button></div></div>
+          <div class="workspace-tabs"><button class="tab active" data-tab="output" aria-selected="true">Output <span class="tab-dot"></span></button><button class="tab" data-tab="code" aria-selected="false">C code</button><span class="tab-meta" id="output-meta">7 rows · 7 columns</span></div>
+          <div class="output-panel" id="output-panel"><div class="panel-toolbar"><span><i class="window-dot dot-red"></i><i class="window-dot dot-yellow"></i><i class="window-dot dot-green"></i></span><span>PROGRAM OUTPUT</span><button class="copy-output" id="copy-output">Copy output</button></div><pre class="output-text" id="output-text" aria-live="polite"></pre></div>
+          <div class="code-panel" id="code-panel" hidden><div class="panel-toolbar"><span><i class="window-dot dot-red"></i><i class="window-dot dot-yellow"></i><i class="window-dot dot-green"></i></span><span id="file-name">pattern.c</span><button class="copy-output" id="copy-code">Copy code</button></div><pre class="code-text"><code id="code-text"></code></pre></div>
+          <div class="workspace-foot"><span><span class="check-mark">✓</span> Runs in any standard C compiler</span><span>Try it: GCC · Clang · OnlineGDB</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="learn-section" id="how-it-works">
+      <div class="learn-intro"><p class="eyebrow">THE IDEA BEHIND THE SHAPE</p><h2>Two loops.<br><span>One pattern.</span></h2><p>Nested loops work like a tiny printing team: one loop moves down the page, while another fills in each row.</p><a href="#patterns" class="text-link">Try another pattern <span>→</span></a></div>
+      <div class="steps">
+        <article class="step"><span class="step-number">01</span><div><h3>Start a row</h3><p>The <code>outer loop</code> runs once for every row you want to print.</p></div><span class="step-symbol">↳</span></article>
+        <article class="step"><span class="step-number">02</span><div><h3>Fill it in</h3><p>The <code>inner loop</code> prints a number or symbol in each column.</p></div><span class="step-symbol">···</span></article>
+        <article class="step"><span class="step-number">03</span><div><h3>Move to the next line</h3><p>After a row is done, <code>\n</code> takes the output to the next line.</p></div><span class="step-symbol">↵</span></article>
+      </div>
+    </section>
+
+    <section class="about-strip" id="about"><span class="about-icon">{ }</span><p><strong>Pattern Lab</strong> is a little learning project about the building blocks of C. Change a value, read the loops, and see what changes.</p><span class="about-tag">KEEP EXPERIMENTING ✳</span></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#home"><span class="brand-icon">{ }</span> pattern<span>lab</span></a><span>LEARN BY MAKING · 2026</span><a href="#home">Back to top ↑</a></footer>
+</body>
+</html>
